@@ -10,8 +10,12 @@
 html,body{
 	height: 100%;
 }
+.text-center{
+	text-align: center !important;
+}
 .login-body{
 	background:#f0f0f0 url(../images/bg1.png) no-repeat center center;
+	background-color: #f0f0f0;
 	background-size: cover;
 }
 .login-content{
@@ -25,4 +29,60 @@ html,body{
 }
 .login-content .btn{
 	margin-top: 25px;
+}
+.header{
+	height: 80px;
+	color:#fff;
+	font-size: 24px;
+	line-height: 80px;
+	text-align: center;
+}
+.content{
+	margin:0 20px 20px;
+}
+.customer-table{
+	width: 100%;
+	border:1px solid #f0f0f0;
+	box-shadow: 0 0 2px 1px rgba(0,0,0,.02);
+	background-color: #fff;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.customer-table th{
+	padding: 8px 10px;
+	color:#fff;
+}
+.customer-table td{
+	padding: 8px 10px;
+	color:#999;
+}
+.customer-table thead{
+	background-color: #5cb85c;
+}
+.customer-table tbody tr:nth-child(even){
+	background-color: #f7f7f7;
+}
+.a-link{
+	font-size: 12px;
+	line-height: 14px;
+	margin-right: 10px;
+}
+.a-link.a-delete{
+	color:#f40;
+}
+.side-nav h3{
+	padding: 10px 15px;
+	display: block;
+	color:#fff;
+	margin:0;
+	font-size: 14px;
+}
+.side-nav a{
+	padding: 10px 15px;
+	display: block;
+	color:#aaa;
+	text-decoration: none;
+}
+.side-nav a:hover{
+	color:#fff;
 }

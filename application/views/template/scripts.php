@@ -1,0 +1,2 @@
+<script type="text/javascript" src="<?php echo(base_url()) . 'resource/libs/jquery/jquery.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo(base_url()) . 'resource/libs/bootstrap/js/bootstrap.min.js' ?>"></script>

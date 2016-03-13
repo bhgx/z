@@ -1,22 +1,35 @@
 <?php 
 	class User_model extends CI_Model{
-		public username;
-		public password;
-		public uid;
-		public creatat;
+		public $username;
+		public $password;
+		public $uid;
+		public $role;
 
+		public function __construct(){
+			parent::__construct();
+		}
 		//查询
 		public function get_user_by_id($id){
+			
 			$query = $this->db->get('user', $id);
 			return $query->result();
 		}
 
+		//登录
+		public function check_user($obj){
+			
+			$query = $this->db->get_where('user',$obj);
+			// $query = $this->db->get('user');
+			return $query;
+		}
+
 		//插入
 		public function insert_user($obj){
+			$this->load->database();
 			$this->username = $obj['username'];
 			$this->password = $obj['password'];
-			$this->username = uniqid();
-			$this->username = time();
+			$this->uid = uniqid();
+			$this->role = 1;
 			$this->db->insert('user', $this);
 		}
 	}
