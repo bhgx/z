@@ -1,4 +1,7 @@
-<header class="header">客户管理</header>
+<header class="header">
+	客户管理
+	<a class="logout" href="<?php echo site_url().'/user/logout' ?>">退出</a>
+</header>
 <div class="content">
 	<div class="clearfix row">
 		<div class="col-sm-2">

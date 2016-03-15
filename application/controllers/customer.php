@@ -2,6 +2,13 @@
 
 	class Customer extends CI_Controller{
 
+		public function __construct(){
+			parent::__construct();
+			if(!$this->session->has_userdata('username')){
+				redirect('login');
+			}
+		}
+
 		public function index(){
 			$this->load->view('template/start');
 			$this->load->view('customer/list');
@@ -10,6 +17,7 @@
 
 		//客户公司
 		public function list_customer(){
+			// $this->session->unset_userdata('username');
 			$this->load->view('template/start');
 			$this->load->view('customer/list_customer_view');
 			$this->load->view('template/end');

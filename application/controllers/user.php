@@ -1,7 +1,7 @@
 <?php 
-    class Login extends CI_Controller{
+    class User extends CI_Controller{
 
-        public function index(){
+        public function login(){
             $this->load->view('template/start');
             $this->load->view('login_view');
             $this->load->view('template/end');
@@ -16,11 +16,18 @@
             $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));
 
             if ($query->row_array()){
-                path('customer/lists');
+                $this->session->set_userdata(array('username' => $username));
+                redirect('customer/list_customer');
             } else {
-                path('login/index');
+                redirect('user/login');
             }
             
+        }
+
+        //退出
+        public function logout(){
+            $this->session->unset_userdata('username');
+            redirect('user/login');
         }
 
         //注册
