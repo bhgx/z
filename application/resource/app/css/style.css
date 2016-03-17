@@ -99,3 +99,11 @@ html,body{
 .side-nav a:hover{
 	color:#fff;
 }
+.add-wrap{
+	padding:20px;
+	background-color: rgba(255,255,255,.85);
+	border-radius: 6px;
+}
+.add-wrap label{
+	color:#666;
+}

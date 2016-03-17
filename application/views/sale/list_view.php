@@ -1,16 +1,7 @@
-<header class="header">客户管理</header>
+<?php $this->load->view('template/header') ?>
 <div class="content">
 	<div class="clearfix row">
-		<div class="col-sm-2">
-			<div class="side-nav">
-				<h3 href="javascript::" class="">导航</h3>
-				<a href="">我的客户</a>
-				<a href="">添加客户</a>
-				<a href="">添加我的公司</a>
-				<a href="">添加交易记录</a>
-				<a href="">交易记录</a>
-			</div>
-		</div>
+		<?php $this->load->view('template/side') ?>
 		<div class="col-sm-10">
 			<table class="customer-table">
 				<thead>

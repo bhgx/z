@@ -17,15 +17,12 @@
 
 		//登录
 		public function check_user($obj){
-			
 			$query = $this->db->get_where('user',$obj);
-			// $query = $this->db->get('user');
 			return $query;
 		}
 
 		//插入
 		public function insert_user($obj){
-			$this->load->database();
 			$this->username = $obj['username'];
 			$this->password = $obj['password'];
 			$this->uid = uniqid();
