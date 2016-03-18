@@ -1,11 +1,12 @@
-<div class="col-sm-2">
+<div class="aside">
+	<img src="<?php echo(base_url()) . 'application/resource/app/images/user.png' ?>" alt="" class="user">
 	<div class="side-nav">
-		<h3 href="javascript::" class="">导航</h3>
-		<a href="<?php echo site_url().'/sale/lists' ?>">交易记录</a>
-		<a href="<?php echo site_url().'/customer/lists' ?>">我的客户</a>
-		<a href="<?php echo site_url().'/join/lists' ?>">我的公司</a>
-		<a href="<?php echo site_url().'/customer/add' ?>">添加客户</a>
-		<a href="<?php echo site_url().'/join/add' ?>">添加公司</a>
-		<a href="">添加交易记录</a>
+	<h2><span></span>名&nbsp;&nbsp;站</h2>
+		<a target="_blank" href="http://www.oschina.net/">开源中国社区</a>
+		<a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Mozilla_event_reference">Mozilla Events</a>
+		<a target="_blank" href="http://icomoon.io/">IcoMoon</a>
+		<a target="_blank" href="http://css3lib.alloyteam.com/">CSS3 UI Lib</a>
+		<a target="_blank" href="http://www.w3cfuns.com/tools.php">W3Cfuns</a>
+		<a target="_blank" class="a-last" href="http://bbs.blueidea.com/forum.php">Blueidea</a>
 	</div>
 </div>

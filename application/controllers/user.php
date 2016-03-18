@@ -17,7 +17,7 @@
 
             if ($query->row_array()){
                 $this->session->set_userdata(array('username' => $username));
-                redirect('customer/list_customer');
+                redirect('customer/lists');
             } else {
                 redirect('user/login');
             }
