@@ -46,8 +46,7 @@
 
 		//添加客户
 		public function add(){
-			$obj = array();
-			$data['joins'] = $this->join_model->get_list($obj);
+			$data['joins'] = $this->join_model->get_list(array());
 			$this->load->view('template/start');
 			$this->load->view('customer/add_view',$data);
 			$this->load->view('template/end');
@@ -65,6 +64,7 @@
 			$obj['address'] = trim($this->input->post('address',true));
 			$obj['link_join_id'] = $this->input->post('link_join_id',true);
 			$obj['status'] = $this->input->post('status');
+			$obj['summary'] = $this->input->post('summary',true);
 			$result = $this->customer_model->insert_customer($obj);
 			if($result){
 				redirect('customer/lists');
@@ -95,6 +95,7 @@
 			$obj['link_join_id'] = $this->input->post('link_join_id');
 			$obj['address'] = trim($this->input->post('address',true));
 			$obj['status'] = $this->input->post('status');
+			$obj['summary'] = $this->input->post('summary',true);
 
 			$result = $this->customer_model->update_customer($id, $obj);
 			if($result){

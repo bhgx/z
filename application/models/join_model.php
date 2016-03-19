@@ -8,6 +8,7 @@
 		public $status;
 		public $join_at;
 		public $leave_at;
+		public $summary;
 
 		//构造函数
 		public function __construct(){
@@ -43,6 +44,7 @@
 			$this->link_tell = $obj['link_tell'];
 			$this->address = $obj['address'];
 			$this->status = $obj['status'];
+			$this->summary = $obj['summary'];
 			$this->join_at = date('Y-m-d');
 			$this->db->insert('join_company', $this);
 			if ($this->db->affected_rows() > -1) {

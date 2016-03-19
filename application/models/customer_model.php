@@ -9,6 +9,7 @@
 		public $address;
 		public $status;
 		public $create_at;
+		public $summary;
 
 		//构造函数
 		public function __construct(){
@@ -28,7 +29,7 @@
 			
 			$this->db->select('a.id,a.name,a.link_name,a.link_tell,a.link_sex,a.address,a.status,a.create_at,a.link_join_id,b.name as link_join_name');
 			$this->db->from('customer_company as a');
-			$this->db->join('join_company as b', 'a.link_join_id=b.id', 'out');
+			$this->db->join('join_company as b', 'a.link_join_id=b.id', 'left');
 			$query = $this->db->get();
 			return $query;
 		}
@@ -36,7 +37,7 @@
 		//查询单个公司
 		public function get_customer($id){
 			$this->db->where('a.id', $id);
-			$this->db->select('a.id,a.name,a.link_name,a.link_tell,a.link_sex,a.address,a.status,a.create_at,a.link_join_id,b.name as link_join_name');
+			$this->db->select('a.id,a.name,a.link_name,a.link_tell,a.link_sex,a.address,a.status,a.create_at,a.link_join_id,a.summary,b.name as link_join_name');
 			$this->db->from('customer_company as a');
 			$this->db->join('join_company as b', 'a.link_join_id=b.id','left');
 			$query = $this->db->get();
@@ -57,6 +58,7 @@
 			$this->link_sex = $obj['link_sex'];
 			$this->address = $obj['address'];
 			$this->status = $obj['status'];
+			$this->summary = $obj['summary'];
 
 			$this->db->insert('customer_company', $this);
 			if ($this->db->affected_rows() > -1) {

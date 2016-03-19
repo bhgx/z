@@ -1,6 +1,6 @@
 <?php $this->load->view('template/header') ?>
 <div class="content">
-	<div class="clearfix row">
+	<div class="clearfix">
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="add-wrap">
@@ -32,6 +32,7 @@
 					<div class="form-group">
 						<label for="">关联我的公司</label>
 						<select name="link_join_id" class="form-control">
+							<option value="">无</option>
 							<?php foreach ($joins->result() as $row): ?>
 							<option <?php add_selected($item['link_join_id'], $row->id) ?>  value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
 							<?php endforeach ?>
@@ -44,6 +45,10 @@
 							<option <?php add_selected($item['status'],'激活') ?> value="激活">激活</option>
 							<option <?php add_selected($item['status'],'冻结') ?> value="冻结">冻结</option>
 						</select>
+					</div>
+					<div class="form-group">
+						<label for="">备注</label>
+						<textarea name="summary" class="form-textarea form-control"><?php echo $item['summary'] ?></textarea>
 					</div>
 					<div class="form-group text-center">
 						<button class="btn btn-success">保存</button>

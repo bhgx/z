@@ -58,6 +58,7 @@
 			$obj['link_tell'] = trim($this->input->post('link_tell',true));
 			$obj['address'] = trim($this->input->post('address'),true);
 			$obj['status'] = $this->input->post('status');
+			$obj['summary'] = $this->input->post('summary',true);
 
 			$result = $this->join_model->insert_join($obj);
 			if($result){
@@ -85,6 +86,7 @@
 			$obj['link_tell'] = trim($this->input->post('link_tell',true));
 			$obj['address'] = trim($this->input->post('address',true));
 			$obj['status'] = trim($this->input->post('status'));
+			$obj['summary'] = $this->input->post('summary',true);
 
 			$result = $this->join_model->update_join($id, $obj);
 			if($result){

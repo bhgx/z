@@ -1,6 +1,6 @@
 <?php $this->load->view('template/header') ?>
 <div class="content">
-	<div class="clearfix row">
+	<div class="clearfix">
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="add-wrap">
@@ -30,8 +30,13 @@
 					<div class="detail-t"><?php echo $item['join_at'] ?></div>
 				</div>
 				<div class="detail-cl">
+					<label for="">备注</label>
+					<div class="detail-t"><?php echo $item['summary'] ?></div>
+				</div>
+				<div class="detail-cl bw-mt">
 					<label for=""></label>
-					<a href=<?php echo site_url('/join/edit/'. $item['id']) ?> class="btn btn-success btn-margin">编辑</a>
+					<a onclick="return confirm('确定要删除该公司么？')" href=<?php echo site_url('/join/delete/'. $item['id']) ?> class="btn btn-danger mar-r20">删除</a>
+					<a href=<?php echo site_url('/join/edit/'. $item['id']) ?> class="btn btn-success">编辑</a>
 				</div>
 			</div>
 		</div>

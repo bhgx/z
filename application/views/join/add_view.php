@@ -1,6 +1,6 @@
 <?php $this->load->view('template/header') ?>
 <div class="content">
-	<div class="clearfix row">
+	<div class="clearfix">
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="add-wrap">
@@ -28,6 +28,10 @@
 							<option value="离职">离职</option>
 							<option value="待入职">待入职</option>
 						</select>
+					</div>
+					<div class="form-group">
+						<label for="">备注</label>
+						<textarea name="summary" class="form-textarea form-control"></textarea>
 					</div>
 					<div class="form-group text-center">
 						<button class="btn btn-success btn-margin">保存</button>

@@ -1,6 +1,6 @@
 <?php $this->load->view('template/header') ?>
 <div class="content">
-	<div class="clearfix row">
+	<div class="clearfix">
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="content-ri">
@@ -53,7 +53,7 @@
 							<td><?php echo $row->link_join_name; ?></td>
 							<td><?php echo $row->status; ?></td>
 							<td>
-								<a onclick="return confirm('确定要删除该公司么？');" href=<?php echo site_url('/customer/delete/'. $row->id) ?> class="a-link a-delete">删除</a>
+								<a onclick="return confirm('确定要删除该客户么？');" href=<?php echo site_url('/customer/delete/'. $row->id) ?> class="a-link a-delete">删除</a>
 								<a href=<?php echo site_url('/customer/edit/'. $row->id) ?> class="a-link">编辑</a>
 								<a href=<?php echo site_url('/customer/detail/'. $row->id) ?> class="a-link">查看</a>
 							</td>
