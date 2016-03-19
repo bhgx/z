@@ -6,7 +6,7 @@
 			<div class="content-ri">
 				<div class="rtop">
 					<div class="search-wrap">
-						<form class="form-inline" action="<?php echo site_url('/join/lists') ?>" method="post">
+						<form class="form-inline" action="<?php echo site_url('/customer/lists') ?>" method="post">
 							<div class="form-group">
 								<input name="name" value="<?php echo $this->input->post('name') ?>" type="text" class="form-control"  placeholder="公司名">
 							</div>
@@ -16,6 +16,14 @@
 							<div class="form-group">
 								<input name="address" value="<?php echo $this->input->post('address') ?>" type="text" class="form-control" placeholder="地址">
 							</div>
+							<div class="form-group">
+								<select name="link_join_id" class="form-control" placeholder="关联公司">
+									<option value="">全部</option>
+									<?php foreach ($joins->result() as $row): ?>
+									<option <?php add_selected($this->input->post('link_join_id'), $row->id) ?> value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+									<?php endforeach ?>
+								</select>
+							</div>
 							<button type="submit" class="btn btn-default">查询</button>
 						</form>
 					</div>
@@ -24,55 +32,33 @@
 				<table class="customer-table">
 					<thead>
 						<tr>
-							<th width="25%">客户公司名称</th>
+							<th width="20%">客户公司名称</th>
 							<th width="10%">联系人名</th>
 							<th width="5%">性别</th>
 							<th width="10%">电话</th>
 							<th width="20%">地址</th>
 							<th width="15%">关联我的公司</th>
+							<th width="5%">状态</th>
 							<th width="15%">操作</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>共致开源软件有限公司</td>
-							<td>老秦</td>
-							<td>男</td>
-							<td>18301075531</td>
-							<td>北京市海淀区上地十街</td>
-							<td>纷享销客</td>
+						<?php foreach ($query->result() as $row): ?>
+							<tr>
+							<td><?php echo $row->name?></td>
+							<td><?php echo $row->link_name; ?></td>
+							<td><?php echo $row->link_sex; ?></td>
+							<td><?php echo $row->link_tell; ?></td>
+							<td><?php echo $row->address; ?></td>
+							<td><?php echo $row->link_join_name; ?></td>
+							<td><?php echo $row->status; ?></td>
 							<td>
-								<a href="" class="a-link a-delete">删除</a>
-								<a href="" class="a-link">编辑</a>
-								<a href="" class="a-link">查看</a>
+								<a onclick="return confirm('确定要删除该公司么？');" href=<?php echo site_url('/customer/delete/'. $row->id) ?> class="a-link a-delete">删除</a>
+								<a href=<?php echo site_url('/customer/edit/'. $row->id) ?> class="a-link">编辑</a>
+								<a href=<?php echo site_url('/customer/detail/'. $row->id) ?> class="a-link">查看</a>
 							</td>
 						</tr>
-						<tr>
-							<td>共致开源软件有限公司</td>
-							<td>老秦</td>
-							<td>男</td>
-							<td>18301075531</td>
-							<td>北京市海淀区上地十街</td>
-							<td>纷享销客</td>
-							<td>
-								<a href="" class="a-link a-delete">删除</a>
-								<a href="" class="a-link">编辑</a>
-								<a href="" class="a-link">查看</a>
-							</td>
-						</tr>
-						<tr>
-							<td>共致开源软件有限公司</td>
-							<td>老秦</td>
-							<td>男</td>
-							<td>18301075531</td>
-							<td>北京市海淀区上地十街</td>
-							<td>纷享销客</td>
-							<td>
-								<a href="" class="a-link a-delete">删除</a>
-								<a href="" class="a-link">编辑</a>
-								<a href="" class="a-link">查看</a>
-							</td>
-						</tr>
+						<?php endforeach ?>
 					</tbody>
 				</table>
 			</div>

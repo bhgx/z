@@ -18,7 +18,7 @@
 		//我加入的公司
 		public function lists(){
 
-			$obj = $arrayName = array();
+			$obj = array();
 			$obj['name'] = trim($this->input->post('name'));
 			$obj['link_name'] = trim($this->input->post('link_name'));
 			$obj['address'] = trim($this->input->post('address'));
@@ -50,7 +50,7 @@
 		//添加我的公司 保存
 		public function add_save(){
 			
-			$obj = $arrayName = array();
+			$obj = array();
 
 			$obj['name'] = trim($this->input->post('name'));
 			$obj['link_name'] = trim($this->input->post('link_name'));
@@ -62,7 +62,7 @@
 			if($result){
 				redirect('join/lists');
 			} else {
-				redirect('join/lists');
+				alert('保存失败！');
 			}
 		}
 
@@ -77,7 +77,7 @@
 		// 编辑我的公司 保存
 		public function edit_save($id){
 			
-			$obj = $arrayName = array();
+			$obj = array();
 
 			$obj['name'] = trim($this->input->post('name'));
 			$obj['link_name'] = trim($this->input->post('link_name'));

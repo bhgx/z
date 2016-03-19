@@ -218,7 +218,9 @@ li{
 .search-wrap{
 	float: left;
 }
-
+.search-wrap .form-control{
+	width: 150px;
+}
 
 
 

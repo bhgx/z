@@ -51,7 +51,7 @@
 
 
 
-
+INSERT INTO `customer_company` (`id`, `name`, `link_name`, `link_tell`, `link_join_id`, `link_sex`, `address`, `status`, `create_at`) VALUES ('56ed2d8026d3f', '要城', 'jim', '18477639891', '56ed073f4ab9b', '男', '北京市海淀区学院路', '激活', '2016-03-19');
 
 
 

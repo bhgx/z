@@ -17,9 +17,11 @@
 
 		//查询列表
 		public function get_list($obj){
-			$this->db->like('name',$obj['name'],'both');
-			$this->db->like('link_name',$obj['link_name'],'both');
-			$this->db->like('address',$obj['address'],'both');
+			if (count($obj) != 0) {
+				$this->db->like('name',$obj['name'],'both');
+				$this->db->like('link_name',$obj['link_name'],'both');
+				$this->db->like('address',$obj['address'],'both');
+			}
 			$query = $this->db->get('join_company');
 			return $query;
 		}
