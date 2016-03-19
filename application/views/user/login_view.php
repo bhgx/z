@@ -1,5 +1,5 @@
 <div class="login-content">
-	<form id="loginForm" action="<?php echo site_url().'/user/check'?>" method="post">
+	<form id="loginForm" action="<?php echo site_url('/user/check') ?>" method="post">
 		<div class="form-group">
 			<input id="username" name="username" type="text" class="form-control" placeholder="账号">
 		</div>

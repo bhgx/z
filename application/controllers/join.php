@@ -37,6 +37,7 @@
 			$this->load->view('template/end');
 		}
 
+		//添加我的公司 保存
 		public function add_save(){
 			
 			$obj = $arrayName = array();
@@ -47,9 +48,22 @@
 			$obj['address'] = trim($this->input->post('address'));
 			$obj['status'] = trim($this->input->post('status'));
 
-			$query = $this->join_model->insert_join($obj);
+			$result = $this->join_model->insert_join($obj);
+			if($result){
+				redirect('join/lists');
+			} else {
+				redirect('join/lists');
+			}
+		}
 
-			
+		// 删除我的公司
+		public function delete($id){
+			$result = $this->join_model->delete($id);
+			if($result){
+				redirect('join/lists');
+			} else {
+				redirect('join/lists');
+			}
 		}
 	}
 

@@ -17,21 +17,21 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($query->result() as $row) { ?>
+						<?php foreach ($query->result() as $row): ?>
 							<tr>
-							<td><?php echo $row->name; ?></td>
+							<td><?php echo $row->name?></td>
 							<td><?php echo $row->link_name; ?></td>
 							<td><?php echo $row->link_tell; ?></td>
 							<td><?php echo $row->address; ?></td>
 							<td><?php echo $row->join_at; ?></td>
 							<td><?php echo $row->status; ?></td>
 							<td>
-								<a href="" class="a-link a-delete">删除</a>
+								<a onclick="return confirm('确定要删除该公司么？');" href=<?php echo site_url('/join/delete/'. $row->id) ?> class="a-link a-delete">删除</a>
 								<a href="" class="a-link">编辑</a>
 								<a href="" class="a-link">查看</a>
 							</td>
 						</tr>
-						<?php } ?>
+						<?php endforeach ?>
 					</tbody>
 				</table>
 			</div>

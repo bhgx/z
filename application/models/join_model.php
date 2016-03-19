@@ -30,6 +30,24 @@
 			$this->status = $obj['status'];
 			$this->join_at = date('Y-m-d');
 			$this->db->insert('join_company', $this);
+			if ($this->db->affected_rows() > -1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		//删除 
+		public function delete($id){
+
+			$this->db->where('id', $id);
+			$this->db->delete('join_company');
+			if ($this->db->affected_rows() > -1) {
+				return true;
+			} else {
+				return false;
+			}
+			
 		}
 	}
 

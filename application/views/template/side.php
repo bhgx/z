@@ -1,5 +1,5 @@
 <div class="aside">
-	<img src="<?php echo(base_url()) . 'application/resource/app/images/user.png' ?>" alt="" class="user">
+	<img src="<?php echo(base_url('application/resource/app/images/user.png')) ?>" alt="" class="user">
 	<div class="side-nav">
 	<h2><span></span>名&nbsp;&nbsp;站</h2>
 		<a target="_blank" href="http://www.oschina.net/">开源中国社区</a>

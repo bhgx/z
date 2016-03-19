@@ -3,7 +3,7 @@
 
         public function login(){
             $this->load->view('template/start');
-            $this->load->view('login_view');
+            $this->load->view('user/login_view');
             $this->load->view('template/end');
         }
 

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>客户</title>
 	<base href="<?php echo base_url() ?>">
-	<link rel="stylesheet" href="<?php echo(base_url()) . 'application/resource/libs/bootstrap/css/bootstrap.min.css' ?>">
-	<link rel="stylesheet" href="<?php echo(base_url()) . 'application/resource/app/css/style.css' ?>">
+	<link rel="stylesheet" href="<?php echo base_url('application/resource/libs/bootstrap/css/bootstrap.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('application/resource/app/css/style.css') ?>">
 </head>
 <body class="login-body">

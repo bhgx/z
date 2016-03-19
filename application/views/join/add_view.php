@@ -4,7 +4,7 @@
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="add-wrap">
-				<form action="<?php echo site_url().'/join/add_save'?>" method="post">
+				<form action="<?php echo site_url('/join/add_save') ?>" method="post">
 					<div class="form-group">
 						<label for="">公司名称</label>
 						<input name="name" type="text" class="form-control">
