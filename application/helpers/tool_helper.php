@@ -11,4 +11,11 @@
 		}
 	}
 
+	// selected
+	function add_selected($s1, $s2){
+		if($s1 == $s2) {
+			echo 'selected';
+		}
+	}
+
  ?>

@@ -24,13 +24,13 @@
 					<div class="form-group">
 						<label for="">状态</label>
 						<select name="status" class="form-control">
-							<option value="1">在职</option>
-							<option value="2">离职</option>
-							<option value="3">待入职</option>
+							<option value="在职">在职</option>
+							<option value="离职">离职</option>
+							<option value="待入职">待入职</option>
 						</select>
 					</div>
 					<div class="form-group text-center">
-						<button class="btn btn-success">保存</button>
+						<button class="btn btn-success btn-margin">保存</button>
 					</div>
 				</form>
 			</div>

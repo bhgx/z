@@ -4,6 +4,20 @@
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="content-ri">
+				<div class="rtop">
+					<div class="search-wrap">
+						<form class="form-inline">
+							<div class="form-group">
+								<input type="text" class="form-control"  placeholder="公司名">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="联系人名">
+							</div>
+							<button type="submit" class="btn btn-default">查询</button>
+						</form>
+					</div>
+					<a href="<?php echo site_url('/sale/add') ?>" class="btn btn-success pull-right">添加</a>
+				</div>
 				<table class="customer-table">
 					<thead>
 						<tr>

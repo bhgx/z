@@ -66,7 +66,7 @@ li{
 	color:#f0f0f0;
 }
 .navigator li a.current{
-	color:#4DB6BA;
+	color:#777;
 }
 .logo{
 	display: block;
@@ -187,8 +187,37 @@ li{
 .side-nav a:hover{
 	color:#4DB6BA;
 }
-
-
+.detail-cl{
+	overflow: hidden;
+}
+.detail-cl label{
+	display: block;
+	width: 100px;
+	float: left;
+	line-height: 40px;
+	margin:0;
+	color:#999;
+	min-height: 10px;
+}
+.detail-t{
+	padding-left: 100px;
+	line-height: 20px;
+	padding:10px;
+	font-size: 14px;
+}
+.btn-margin{
+	margin-top: 40px;
+}
+.rtop{
+	background-color: #fff;
+	border-radius: 4px;
+	padding:10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.search-wrap{
+	float: left;
+}
 
 
 

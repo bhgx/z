@@ -26,7 +26,7 @@
 						<select name="" id="" class="form-control"></select>
 					</div>
 					<div class="form-group text-center">
-						<button class="btn btn-success">保存</button>
+						<button class="btn btn-success btn-margin">保存</button>
 					</div>
 				</form>
 			</div>

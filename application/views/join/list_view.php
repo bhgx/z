@@ -4,6 +4,23 @@
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="content-ri">
+				<div class="rtop">
+					<div class="search-wrap">
+						<form class="form-inline" action="<?php echo site_url('/join/lists') ?>" method="post">
+							<div class="form-group">
+								<input name="name" value="<?php echo $this->input->post('name') ?>" type="text" class="form-control"  placeholder="公司名">
+							</div>
+							<div class="form-group">
+								<input name="link_name" value="<?php echo $this->input->post('link_name') ?>" type="text" class="form-control" placeholder="联系人名">
+							</div>
+							<div class="form-group">
+								<input name="address" value="<?php echo $this->input->post('address') ?>" type="text" class="form-control" placeholder="地址">
+							</div>
+							<button type="submit" class="btn btn-default">查询</button>
+						</form>
+					</div>
+					<a href="<?php echo site_url('/join/add') ?>" class="btn btn-success pull-right">添加</a>
+				</div>
 				<table class="customer-table">
 					<thead>
 						<tr>
@@ -27,8 +44,8 @@
 							<td><?php echo $row->status; ?></td>
 							<td>
 								<a onclick="return confirm('确定要删除该公司么？');" href=<?php echo site_url('/join/delete/'. $row->id) ?> class="a-link a-delete">删除</a>
-								<a href="" class="a-link">编辑</a>
-								<a href="" class="a-link">查看</a>
+								<a href=<?php echo site_url('/join/edit/'. $row->id) ?> class="a-link">编辑</a>
+								<a href=<?php echo site_url('/join/detail/'. $row->id) ?> class="a-link">查看</a>
 							</td>
 						</tr>
 						<?php endforeach ?>
