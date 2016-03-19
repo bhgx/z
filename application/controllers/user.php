@@ -3,7 +3,20 @@
     
     class User extends CI_Controller{
 
+        public function __construct(){
+            parent::__construct();
+            $this->load->model('user_model');
+        }
+
+        public function index(){
+            redirect('user/login');
+        }
+
+        // 到登录页面
         public function login(){
+            if($this->session->has_userdata('username')){
+                redirect('sale/lists');
+            }
             $this->load->view('template/start');
             $this->load->view('user/login_view');
             $this->load->view('template/end');
@@ -14,13 +27,16 @@
    			$username = $this->input->post('username',true);
 			$password = $this->input->post('password',true);
 
-            $this->load->model('user_model');
             $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));
 
             if ($row = $query->row_array()){
-                $this->session->set_userdata(array('username' => $username));
-                $this->session->set_userdata(array('user_id' => $row['user_id']));
-                redirect('customer/lists');
+                $this->session->set_userdata(array(
+                    'username' => $row['username'],
+                    'user_id' => $row['user_id'],
+                    'role' => $row['role'],
+                    'avatar' => $row['avatar']
+                ));
+                redirect('sale/lists');
             } else {
                 redirect('user/login');
             }
@@ -29,7 +45,7 @@
 
         //退出
         public function logout(){
-            $this->session->unset_userdata('username');
+            $this->session->unset_userdata(array( 'username', 'user_id', 'role' , 'avatar'));
             redirect('user/login');
         }
 

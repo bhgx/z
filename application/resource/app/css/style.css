@@ -144,7 +144,6 @@ li{
 	color:#666;
 }
 .aside{
-	padding-top: 20px;
 	border-radius: 4px;
 	width: 160px;
 	float: left;
@@ -160,6 +159,12 @@ li{
 	margin: 0px auto 10px;
 	border-radius: 50%;
 	border:6px solid #4DB6BA;
+}
+.ewm{
+	display: block;
+	width: 100%;
+	border:1px solid #4DB6BA;
+	border-radius: 4px;
 }
 .side-nav {
     background: url(../images/linkbg.gif) repeat-y top center;

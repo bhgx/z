@@ -1,5 +1,9 @@
 <div class="aside">
-	<img src="<?php echo(base_url('application/resource/app/images/user.png')) ?>" alt="" class="user">
+	<?php if($this->session->userdata('role') > 1): ?>
+	<img src="<?php echo $this->session->userdata('avatar') ?>" alt="" class="user">
+	<?php else: ?>
+	<img src="<?php echo $this->session->userdata('avatar') ?>" alt="" class="ewm">
+	<?php endif ?>
 	<div class="side-nav">
 	<h2><span></span>名&nbsp;&nbsp;站</h2>
 		<a target="_blank" href="http://www.oschina.net/">开源中国社区</a>

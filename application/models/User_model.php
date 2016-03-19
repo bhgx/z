@@ -17,6 +17,7 @@
 
 		//登录
 		public function check_user($obj){
+			$this->db->where('status', 1); //1代表正常，0代表冻结
 			$query = $this->db->get_where('user',$obj);
 			return $query;
 		}
