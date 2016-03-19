@@ -9,6 +9,7 @@
 		public $join_at;
 		public $leave_at;
 		public $summary;
+		public $user_id;
 
 		//构造函数
 		public function __construct(){
@@ -23,6 +24,8 @@
 				$this->db->like('link_name',$obj['link_name'],'both');
 				$this->db->like('address',$obj['address'],'both');
 			}
+			$this->db->where('user_id',$this->session->userdata('user_id'));
+
 			$query = $this->db->get('join_company');
 			return $query;
 		}
@@ -30,6 +33,7 @@
 		//查询单个公司
 		public function get_join($id){
 			$this->db->where('id', $id);
+			
 			$query = $this->db->get('join_company');
 			if($row = $query->row_array()) {
 				return $row;
@@ -46,6 +50,8 @@
 			$this->status = $obj['status'];
 			$this->summary = $obj['summary'];
 			$this->join_at = date('Y-m-d');
+			$this->user_id = $this->session->userdata('user_id');
+
 			$this->db->insert('join_company', $this);
 			if ($this->db->affected_rows() > -1) {
 				return true;

@@ -17,8 +17,9 @@
             $this->load->model('user_model');
             $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));
 
-            if ($query->row_array()){
+            if ($row = $query->row_array()){
                 $this->session->set_userdata(array('username' => $username));
+                $this->session->set_userdata(array('user_id' => $row['user_id']));
                 redirect('customer/lists');
             } else {
                 redirect('user/login');
