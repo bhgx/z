@@ -1,5 +1,6 @@
 <?php 
-
+	defined('BASEPATH') OR exit('No direct script access allowed');
+	
 	class Customer extends CI_Controller{
 
 		public function __construct(){
@@ -22,10 +23,10 @@
 			$data['joins'] = $this->join_model->get_list($arrayName);
 
 			$obj = array();
-			$obj['name'] = trim($this->input->post('name'));
-			$obj['link_name'] = trim($this->input->post('link_name'));
-			$obj['address'] = trim($this->input->post('address'));
-			$obj['link_join_id'] = trim($this->input->post('link_join_id'));
+			$obj['name'] = trim($this->input->post('name',true));
+			$obj['link_name'] = trim($this->input->post('link_name',true));
+			$obj['address'] = trim($this->input->post('address',true));
+			$obj['link_join_id'] = $this->input->post('link_join_id');
 
 			$query = $this->customer_model->get_list($obj);
 			$data['query'] = $query;
@@ -57,12 +58,12 @@
 			
 			$obj = array();
 
-			$obj['name'] = trim($this->input->post('name'));
-			$obj['link_name'] = trim($this->input->post('link_name'));
+			$obj['name'] = trim($this->input->post('name',true));
+			$obj['link_name'] = trim($this->input->post('link_name',true));
 			$obj['link_sex'] = trim($this->input->post('link_sex'));
-			$obj['link_tell'] = trim($this->input->post('link_tell'));
-			$obj['address'] = trim($this->input->post('address'));
-			$obj['link_join_id'] = $this->input->post('link_join_id');
+			$obj['link_tell'] = trim($this->input->post('link_tell',true));
+			$obj['address'] = trim($this->input->post('address',true));
+			$obj['link_join_id'] = $this->input->post('link_join_id',true);
 			$obj['status'] = $this->input->post('status');
 			$result = $this->customer_model->insert_customer($obj);
 			if($result){
@@ -87,12 +88,12 @@
 			
 			$obj = array();
 
-			$obj['name'] = trim($this->input->post('name'));
-			$obj['link_name'] = trim($this->input->post('link_name'));
-			$obj['link_tell'] = trim($this->input->post('link_tell'));
+			$obj['name'] = trim($this->input->post('name',true));
+			$obj['link_name'] = trim($this->input->post('link_name',true));
+			$obj['link_tell'] = trim($this->input->post('link_tell',true));
 			$obj['link_sex'] = $this->input->post('link_sex');
 			$obj['link_join_id'] = $this->input->post('link_join_id');
-			$obj['address'] = trim($this->input->post('address'));
+			$obj['address'] = trim($this->input->post('address',true));
 			$obj['status'] = $this->input->post('status');
 
 			$result = $this->customer_model->update_customer($id, $obj);

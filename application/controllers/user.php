@@ -1,4 +1,6 @@
 <?php 
+    defined('BASEPATH') OR exit('No direct script access allowed');
+    
     class User extends CI_Controller{
 
         public function login(){
@@ -9,8 +11,8 @@
 
         //登录
         public function check(){
-   			$username = $this->input->post('username');
-			$password = $this->input->post('password');
+   			$username = $this->input->post('username',true);
+			$password = $this->input->post('password',true);
 
             $this->load->model('user_model');
             $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));

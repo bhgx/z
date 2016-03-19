@@ -36,10 +36,10 @@
 							<th width="10%">联系人名</th>
 							<th width="5%">性别</th>
 							<th width="10%">电话</th>
-							<th width="20%">地址</th>
+							<th width="17%">地址</th>
 							<th width="15%">关联我的公司</th>
 							<th width="5%">状态</th>
-							<th width="15%">操作</th>
+							<th width="18%">操作</th>
 						</tr>
 					</thead>
 					<tbody>

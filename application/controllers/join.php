@@ -1,5 +1,6 @@
 <?php 
-
+	defined('BASEPATH') OR exit('No direct script access allowed');
+	
 	class Join extends CI_Controller{
 
 		public function __construct(){
@@ -19,9 +20,9 @@
 		public function lists(){
 
 			$obj = array();
-			$obj['name'] = trim($this->input->post('name'));
-			$obj['link_name'] = trim($this->input->post('link_name'));
-			$obj['address'] = trim($this->input->post('address'));
+			$obj['name'] = trim($this->input->post('name',true));
+			$obj['link_name'] = trim($this->input->post('link_name',true));
+			$obj['address'] = trim($this->input->post('address',true));
 
 			$query = $this->join_model->get_list($obj);
 			$data['query'] = $query;
@@ -52,11 +53,11 @@
 			
 			$obj = array();
 
-			$obj['name'] = trim($this->input->post('name'));
-			$obj['link_name'] = trim($this->input->post('link_name'));
-			$obj['link_tell'] = trim($this->input->post('link_tell'));
-			$obj['address'] = trim($this->input->post('address'));
-			$obj['status'] = trim($this->input->post('status'));
+			$obj['name'] = trim($this->input->post('name',true));
+			$obj['link_name'] = trim($this->input->post('link_name',true));
+			$obj['link_tell'] = trim($this->input->post('link_tell',true));
+			$obj['address'] = trim($this->input->post('address'),true);
+			$obj['status'] = $this->input->post('status');
 
 			$result = $this->join_model->insert_join($obj);
 			if($result){
@@ -79,10 +80,10 @@
 			
 			$obj = array();
 
-			$obj['name'] = trim($this->input->post('name'));
-			$obj['link_name'] = trim($this->input->post('link_name'));
-			$obj['link_tell'] = trim($this->input->post('link_tell'));
-			$obj['address'] = trim($this->input->post('address'));
+			$obj['name'] = trim($this->input->post('name',true));
+			$obj['link_name'] = trim($this->input->post('link_name',true));
+			$obj['link_tell'] = trim($this->input->post('link_tell',true));
+			$obj['address'] = trim($this->input->post('address',true));
 			$obj['status'] = trim($this->input->post('status'));
 
 			$result = $this->join_model->update_join($id, $obj);
