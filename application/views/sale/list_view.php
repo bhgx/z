@@ -7,12 +7,10 @@
 				<div class="rtop">
 					<div class="search-wrap">
 						<form class="form-inline">
-							<div class="form-group">
-								<input type="text" class="form-control"  placeholder="公司名">
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="联系人名">
-							</div>
+							<input type="text" class="form-control bg-f" readonly onclick="WdatePicker()"  placeholder="交易日期">
+							<input type="text" class="form-control"  placeholder="购买方">
+							<input type="text" class="form-control"  placeholder="供货方">
+							<input type="text" class="form-control" placeholder="商品名">
 							<button type="submit" class="btn btn-default">查询</button>
 						</form>
 					</div>
@@ -21,8 +19,8 @@
 				<table class="customer-table">
 					<thead>
 						<tr>
-							<th width="10%">日期</th>
-							<th width="10%">商品</th>
+							<th width="10%">交易日期</th>
+							<th width="10%">商品名</th>
 							<th width="10%">数量</th>
 							<th width="10%">总价</th>
 							<th width="10%">购买方</th>
@@ -58,3 +56,5 @@
 </div>
 <div class="footer"></div>
 <?php $this->load->view('template/scripts'); ?>
+<link rel="stylesheet" href="<?php echo base_url('application/resource/libs/My97DatePicker/skin/WdatePicker.css') ?>">
+<script type="text/javascript" src="<?php echo base_url('application/resource/libs/My97DatePicker/WdatePicker.js') ?>"></script>

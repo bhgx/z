@@ -7,10 +7,10 @@
 				<form action="<?php echo site_url('/sale/add_save') ?>" method="post">
 					<div class="form-group">
 						<label for="">交易日期</label>
-						<input name="sale_date" type="text" class="form-control" placeholder="2012-02-14">
+						<input name="sale_date" readonly onclick="WdatePicker()" type="text" class="form-control bg-f" placeholder="2012-02-14">
 					</div>
 					<div class="form-group">
-						<label for="">货物名称</label>
+						<label for="">商品名称</label>
 						<input name="goods_name" type="text" class="form-control">
 					</div>
 					<div class="form-group">
@@ -66,3 +66,7 @@
 </div>
 <div class="footer"></div>
 <?php $this->load->view('template/scripts'); ?>
+<link rel="stylesheet" href="<?php echo base_url('application/resource/libs/My97DatePicker/skin/WdatePicker.css') ?>">
+<script type="text/javascript" src="<?php echo base_url('application/resource/libs/My97DatePicker/WdatePicker.js') ?>"></script>
+
+

@@ -16,6 +16,7 @@ body{
 	background-size: cover;
 	background-attachment: fixed;
 	padding-top: 100px;
+	min-width: 1024px;
 }
 li{
 	list-style: none;
@@ -42,6 +43,11 @@ li{
 	width: 100%;
 	left:0;
 	top:0;
+	-webkit-transition:background .3s ease-in,box-shadow .3s ease-in;
+	-moz-transition:background .3s ease-in,box-shadow .3s ease-in;
+	-ms-transition:background .3s ease-in,box-shadow .3s ease-in;
+	-o-transition:background .3s ease-in,box-shadow .3s ease-in;
+	transition:background .3s ease-in,box-shadow .3s ease-in;
 	/*background-color: #4cae4c;*/
 	/*background-image: -webkit-linear-gradient(top, #348C8F 0%, #50B8BC 20%, #68D7DB 100%);
     background-image: -moz-linear-gradient(top, #348C8F 0%, #50B8BC 20%, #68D7DB 100%);
@@ -50,12 +56,12 @@ li{
     /*background-image: -webkit-linear-gradient(top, #1C5B29 0%, #34AA4B 20%, #34AA4B 97%, rgba(255,255,255,.5) 100%);*/
 }
 .header-bg{
-	background-color: rgba(0,0,0,.7);
+	background: rgba(0,0,0,.7);
 	box-shadow: 0 2px 2px rgba(0,0,0,.4);
 }
 .navigator{
 	height: 35px;
-	margin-top: 45px;
+	margin-top: 40px;
 	float: left;
 }
 .navigator li{
@@ -84,7 +90,7 @@ li{
 	float: left;
 	width: 189px;
 	height: 60px;
-	margin-top: 16px;
+	margin-top: 14px;
 	margin-left: 30px;
 	background: url(../images/logo.png);
 }
@@ -95,13 +101,13 @@ li{
 	font-size: 12px;
 	line-height: 12px;
 	right: 30px;
-	bottom:10px;
+	bottom:13px;
 }
 .header .logout:hover{
 	text-decoration: underline;
 }
 .content{
-	margin: 0 30px 20px;
+	padding: 0 30px 20px;
 }
 .content-r{
 	padding-left: 190px;
@@ -151,13 +157,19 @@ li{
 }
 .aside{
 	border-radius: 4px;
-	width: 160px;
+	width: 200px;
 	float: left;
 	position: fixed;
 	top:100px;
 	bottom:0;
-	left:30px;
+	left:0;
+	padding-left: 30px;
+	padding-right: 10px;
 
+}
+.aside-bg{
+	background: rgba(0,0,0,.7);
+	box-shadow: 2px 0 2px rgba(0,0,0,.4);
 }
 .user-wrap{
 	width: 80%;
@@ -248,6 +260,7 @@ li{
 }
 .search-wrap .form-control{
 	width: 150px;
+	display: inline-block;
 }
 .bw-mt{
 	margin-top: 40px;
@@ -259,7 +272,9 @@ li{
 	resize:none;
 	height: 100px;
 }
-
+.bg-f{
+	background-color: #fff !important;
+}
 
 
 

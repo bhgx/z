@@ -1,4 +1,4 @@
-<div class="aside">
+<div class="aside" id="aside">
 	<?php if($this->session->userdata('role') > 1): ?>
 	<div class="user-wrap">
 		<img src="<?php echo $this->session->userdata('avatar') ?>" alt="" class="user">
