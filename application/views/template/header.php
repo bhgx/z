@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" id="header">
 	<a href="<?php echo site_url('/sale/lists') ?>" class="logo"></a>
 	<div class="navigator">
 		<ul class="clearfix">
