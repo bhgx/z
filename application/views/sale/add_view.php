@@ -7,7 +7,7 @@
 				<form action="<?php echo site_url('/sale/add_save') ?>" method="post">
 					<div class="form-group">
 						<label for="">交易日期</label>
-						<input name="sale_date" type="text" class="form-control">
+						<input name="sale_date" type="text" class="form-control" placeholder="2012-02-14">
 					</div>
 					<div class="form-group">
 						<label for="">货物名称</label>
