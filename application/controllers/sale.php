@@ -13,6 +13,10 @@
 			$this->load->model('sale_model');
 		}
 
+		public function index(){
+			redirect('sale/lists');
+		}
+
 		//交易记录
 		public function lists(){
 
