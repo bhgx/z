@@ -132,7 +132,6 @@ li{
 	color:#999;
 }
 .customer-table thead{
-	/*background-color: #5cb85c;*/
 	background-color: #f0f0f0;
 }
 .customer-table tbody tr:nth-child(even){
