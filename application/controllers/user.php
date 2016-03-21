@@ -41,7 +41,7 @@
 
                 //想在这里先给一个alert提示，然后再跳转到登陆页面
 
-                redirect('user/login','用户名或密码错误');
+                redirect('user/login');
             }
             
         }
