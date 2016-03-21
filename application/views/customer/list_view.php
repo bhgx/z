@@ -7,23 +7,15 @@
 				<div class="rtop">
 					<div class="search-wrap">
 						<form class="form-inline" action="<?php echo site_url('/customer/lists') ?>" method="post">
-							<div class="form-group">
-								<input name="name" value="<?php echo $this->input->post('name') ?>" type="text" class="form-control"  placeholder="公司名">
-							</div>
-							<div class="form-group">
-								<input name="link_name" value="<?php echo $this->input->post('link_name') ?>" type="text" class="form-control" placeholder="联系人名">
-							</div>
-							<div class="form-group">
-								<input name="address" value="<?php echo $this->input->post('address') ?>" type="text" class="form-control" placeholder="地址">
-							</div>
-							<div class="form-group">
-								<select name="link_join_id" class="form-control" placeholder="关联公司">
-									<option value="">全部</option>
-									<?php foreach ($joins->result() as $row): ?>
-									<option <?php add_selected($this->input->post('link_join_id'), $row->id) ?> value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
-									<?php endforeach ?>
-								</select>
-							</div>
+							<input name="name" value="<?php echo $this->input->post('name') ?>" type="text" class="form-control"  placeholder="公司名">
+							<input name="link_name" value="<?php echo $this->input->post('link_name') ?>" type="text" class="form-control" placeholder="联系人名">
+							<input name="address" value="<?php echo $this->input->post('address') ?>" type="text" class="form-control" placeholder="地址">
+							<select name="link_join_id" class="form-control" placeholder="关联公司">
+								<option value="">全部</option>
+								<?php foreach ($joins->result() as $row): ?>
+								<option <?php add_selected($this->input->post('link_join_id'), $row->id) ?> value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+								<?php endforeach ?>
+							</select>
 							<button type="submit" class="btn btn-default">查询</button>
 						</form>
 					</div>
@@ -44,7 +36,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($query->result() as $row): ?>
-							<tr>
+						<tr>
 							<td><?php echo $row->name?></td>
 							<td><?php echo $row->link_name; ?></td>
 							<td><?php echo $row->link_sex; ?></td>
@@ -60,6 +52,7 @@
 						</tr>
 						<?php endforeach ?>
 					</tbody>
+
 				</table>
 			</div>
 		</div>

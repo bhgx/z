@@ -7,15 +7,9 @@
 				<div class="rtop">
 					<div class="search-wrap">
 						<form class="form-inline" action="<?php echo site_url('/join/lists') ?>" method="post">
-							<div class="form-group">
-								<input name="name" value="<?php echo $this->input->post('name') ?>" type="text" class="form-control"  placeholder="公司名">
-							</div>
-							<div class="form-group">
-								<input name="link_name" value="<?php echo $this->input->post('link_name') ?>" type="text" class="form-control" placeholder="联系人名">
-							</div>
-							<div class="form-group">
-								<input name="address" value="<?php echo $this->input->post('address') ?>" type="text" class="form-control" placeholder="地址">
-							</div>
+							<input name="name" value="<?php echo $this->input->post('name') ?>" type="text" class="form-control"  placeholder="公司名">
+							<input name="link_name" value="<?php echo $this->input->post('link_name') ?>" type="text" class="form-control" placeholder="联系人名">
+							<input name="address" value="<?php echo $this->input->post('address') ?>" type="text" class="form-control" placeholder="地址">
 							<button type="submit" class="btn btn-default">查询</button>
 						</form>
 					</div>
