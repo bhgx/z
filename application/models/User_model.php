@@ -8,7 +8,17 @@
 		public function __construct(){
 			parent::__construct();
 		}
-		//查询
+
+		//查询列表 管理员才能操作
+		public function get_list($obj){
+			if (count($obj) != 0) {
+				$this->db->like('name',$obj['name'],'both');
+			}
+			$query = $this->db->get('user');
+			return $query;
+		}
+
+		//查询单个用户
 		public function get_user_by_id($id){
 			
 			$query = $this->db->get('user', $id);

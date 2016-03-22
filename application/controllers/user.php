@@ -60,6 +60,20 @@
             $obj = $arrayName = array('username' => $username, 'password' => $password);
             $this->user_model->insert_user($obj);
         }
+
+        //获取用户列表
+        public function lists(){
+
+            $obj = array();
+            $obj['name'] = trim($this->input->post('name',true));
+
+            $query = $this->user_model->get_list($obj);
+            $data['query'] = $query;
+            
+            $this->load->view('template/start');
+            $this->load->view('user/list_view',$data);
+            $this->load->view('template/end');
+        }
     }
     
  ?>
