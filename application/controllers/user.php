@@ -51,29 +51,6 @@
             $this->session->unset_userdata(array( 'username', 'user_id', 'role' , 'avatar'));
             redirect('user/login');
         }
-
-        //注册
-        public function register(){
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $this->load->model('user_model');
-            $obj = $arrayName = array('username' => $username, 'password' => $password);
-            $this->user_model->insert_user($obj);
-        }
-
-        //获取用户列表
-        public function lists(){
-
-            $obj = array();
-            $obj['name'] = trim($this->input->post('name',true));
-
-            $query = $this->user_model->get_list($obj);
-            $data['query'] = $query;
-            
-            $this->load->view('template/start');
-            $this->load->view('user/list_view',$data);
-            $this->load->view('template/end');
-        }
     }
     
  ?>
