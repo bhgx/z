@@ -65,7 +65,8 @@
             $this->load->view('template/end');
         }
 
-        public function edit_save($user_id){
+        public function edit_save(){
+            $user_id = $this->session->userdata('user_id');
             $obj = array();
             $obj['nike_name'] = trim($this->input->post('nike_name',true));
             $obj['avatar'] = trim($this->input->post('avatar',true));
@@ -81,21 +82,35 @@
         //修改密码
         public function change_pwd(){
             $this->load->view('template/start');
-            $this->load->view('user/change_pwd_view', $data);
+            $this->load->view('user/change_pwd_view');
             $this->load->view('template/end');
         }
 
         //修改密码 保存
         public function change_pwd_save(){
             $user_id = $this->session->userdata('user_id');
-
             $username = $this->session->userdata('username');
-            $password = md5($this->input->post('password',true));
+            $old_password = md5(trim($this->input->post('old_password',true)));
+            $new_password = md5(trim($this->input->post('new_password',true)));
+            $re_password = md5(trim($this->input->post('re_password',true)));
 
-            $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));
+            if($new_password != $re_password) {
+                //alert('保存失败！');
+                return false;
+            }
+
+
+            $query = $this->user_model->check_user(array('username' => $username, 'password' => $old_password));
 
             if ($row = $query->row_array()){
-                
+                $obj = array();
+                $obj['password'] = $new_password;
+                $result = $this->user_model->update_user($user_id, $obj);
+                if($result){
+                    redirect('user/detail/');
+                } else {
+                    alert('保存失败！');
+                }
             } else {
                 alert('原密码错误');
             }

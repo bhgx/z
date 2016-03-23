@@ -4,7 +4,7 @@
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="add-wrap">
-				<form action="<?php echo site_url('/user/edit_save/'.$item['user_id']) ?>" method="post">
+				<form action="<?php echo site_url('/user/edit_save/') ?>" method="post">
 					<div class="ft">不可编辑项</div>
 					<div class="detail-cl">
 						<label for="">账号</label>

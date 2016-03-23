@@ -71,7 +71,7 @@
             $this->load->view('template/end');
         }
 
-        //编辑 管理员
+        //编辑
         public function edit($user_id){
             $data['item'] = $this->user_model->get_user($user_id);
             $this->load->view('template/start');
@@ -79,7 +79,7 @@
             $this->load->view('template/end');
         }
 
-        //更新
+        //编辑 保存
         public function edit_save($user_id){
             $obj = array();
             $obj['nike_name'] = trim($this->input->post('nike_name',true));
@@ -98,7 +98,26 @@
             }
         }
 
-        // 删除我的公司
+        // 重置密码
+        public function reset_pwd($user_id){
+            $data['item'] = $this->user_model->get_user($user_id);
+            $this->load->view('template/start');
+            $this->load->view('admin/reset_pwd_view', $data);
+            $this->load->view('template/end');
+        }
+
+        public function reset_pwd_save($user_id, $username){
+            $obj = array();
+            $obj['password'] = md5(trim($username));
+            $result = $this->user_model->update_user($user_id, $obj);
+            if($result){
+                redirect('/admin/detail/'.$user_id);
+            } else {
+                alert('重置密码失败！');
+            }
+        }
+
+        // 删除用户
         public function delete($user_id){
             $result = $this->user_model->delete($user_id);
             if($result){

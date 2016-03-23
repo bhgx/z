@@ -39,6 +39,7 @@
 					</div>
 					
 					<div class="form-group text-center bw-mt">
+						<a href="<?php echo site_url('/admin/reset_pwd/'. $item['user_id']) ?>" class="btn btn-link">重置密码</a>
 						<button onclick="return confirm('确定要修改么？');" class="btn btn-success">保存</button>
 					</div>
 				</form>
