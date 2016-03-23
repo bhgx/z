@@ -18,8 +18,8 @@
 				<table class="customer-table">
 					<thead>
 						<tr>
-							<th width="15%">昵称</th>
 							<th width="20%">账号</th>
+							<th width="15%">昵称</th>
 							<th width="10%">权限</th>
 							<th width="15%">状态</th>
 							<th width="20%">创建时间</th>
@@ -29,10 +29,10 @@
 					<tbody>
 						<?php foreach ($query->result() as $row): ?>
 							<tr>
-							<td><?php echo $row->nike_name; ?></td>
 							<td><?php echo $row->username; ?></td>
-							<td><?php echo $row->role; ?></td>
-							<td><?php echo $row->status; ?></td>
+							<td><?php echo $row->nike_name; ?></td>
+							<td><?php echo $global_user_roles[$row->role]; ?></td>
+							<td><?php echo $global_user_status[$row->status]; ?></td>
 							<td><?php echo $row->create_at; ?></td>
 							<td>
 								<a onclick="return confirm('确定要删除该用户么？');" href=<?php echo site_url('/admin/delete/'. $row->user_id) ?> class="a-link a-delete">删除</a>

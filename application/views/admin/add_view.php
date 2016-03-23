@@ -6,12 +6,12 @@
 			<div class="add-wrap">
 				<form action="<?php echo site_url('/admin/add_save') ?>" method="post">
 					<div class="form-group">
-						<label for="">账号</label>
-						<input name="username" type="text" class="form-control bg-f" naxlength="16">
-					</div>
-					<div class="form-group">
 						<label for="">昵称</label>
 						<input name="nike_name"  type="text" class="form-control bg-f" naxlength="40">
+					</div>
+					<div class="form-group">
+						<label for="">账号</label>
+						<input name="username" type="text" class="form-control bg-f" naxlength="16">
 					</div>
 					<div class="form-group">
 						<label for="">密码</label>
@@ -24,19 +24,17 @@
 					<div class="form-group">
 						<label for="">角色权限</label>
 						<select name="role" class="form-control">
-							<option value="2">皇冠会员</option>
-							<option value="3">钻石会员</option>
-							<option value="4">金牌会员</option>
-							<option value="5">银牌会员</option>
-							<option value="6">会员</option>
-							<option selected value="7">普通用户</option>
+							<?php foreach ($global_user_roles as $key => $value): ?>
+								<option value="<?php echo $key ?>"><?php echo $value ?></option>
+							<?php endforeach ?>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="">状态</label>
-						<select name="customer_company_id" class="form-control">
-							<option value="0">冻结</option>
-							<option value="1">正常</option>
+						<select name="status" class="form-control">
+							<?php foreach ($global_user_status as $key => $value): ?>
+								<option value="<?php echo $key ?>"><?php echo $value ?></option>
+							<?php endforeach ?>
 						</select>
 					</div>
 					<div class="form-group">

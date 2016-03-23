@@ -19,7 +19,7 @@
         public function add(){
             
             $this->load->view('template/start');
-            $this->load->view('user/add_view');
+            $this->load->view('admin/add_view');
             $this->load->view('template/end');
         }
 
@@ -54,41 +54,56 @@
             $data['query'] = $query;
             
             $this->load->view('template/start');
-            $this->load->view('user/list_view',$data);
+            $this->load->view('admin/list_view',$data);
             $this->load->view('template/end');
         }
 
         //查看详情
-        public function detail($id){
-            $data['item'] = $this->user_model->get_user($id);
+        public function detail($user_id){
+            $data['item'] = $this->user_model->get_user($user_id);
             $this->load->view('template/start');
-            $this->load->view('user/detail_view', $data);
+            $this->load->view('admin/detail_view', $data);
+            $this->load->view('template/end');
+        }
+
+        //编辑 管理员
+        public function edit($user_id){
+            $data['item'] = $this->user_model->get_user($user_id);
+            $this->load->view('template/start');
+            $this->load->view('admin/edit_view', $data);
             $this->load->view('template/end');
         }
 
         //更新
-        public function update_join($id, $obj){
+        public function edit_save($user_id){
+            $obj = array();
+            $obj['nike_name'] = trim($this->input->post('nike_name',true));
+            $obj['username'] = trim($this->input->post('username',true));
+            $obj['password'] = trim($this->input->post('password',true));
+            $obj['role'] = trim($this->input->post('role',true));
+            $obj['status'] = trim($this->input->post('status',true));
+            $obj['avatar'] = trim($this->input->post('avatar',true));
+            $obj['summary'] = trim($this->input->post('summary',true));
 
-            $this->db->where('id', $id);
-            $this->db->update('user', $obj);
-            if ($this->db->affected_rows() > -1) {
-                return true;
+            $result = $this->user_model->update_user($user_id, $obj);
+            if($result){
+                redirect('admin/detail/'.$user_id);
             } else {
-                return false;
+                alert('保存失败！');
             }
         }
 
-        //删除 
-        public function delete($id){
-
-            $this->db->where('id', $id);
-            $this->db->delete('user');
-            if ($this->db->affected_rows() > -1) {
-                return true;
+        // 删除我的公司
+        public function delete($user_id){
+            $result = $this->user_model->delete($user_id);
+            if($result){
+                redirect('admin/lists');
             } else {
-                return false;
+                redirect('admin/lists');
             }
         }
+
+        
     }
     
  ?>

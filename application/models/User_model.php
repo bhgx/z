@@ -26,9 +26,9 @@
 		}
 
 		//查询单个用户
-		public function get_user($id){
-			
-			$query = $this->db->get('user', $id);
+		public function get_user($user_id){
+			$this->db->where('user_id', $user_id);
+			$query = $this->db->get('user');
 			if($row = $query->row_array()) {
 				return $row;
 			}
@@ -62,6 +62,29 @@
 			}
 		}
 
+		//更新
+		public function update_user($user_id, $obj){
+
+			$this->db->where('user_id', $user_id);
+			$this->db->update('user', $obj);
+			if ($this->db->affected_rows() > -1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		//删除 
+        public function delete($user_id){
+
+            $this->db->where('user_id', $user_id);
+            $this->db->delete('user');
+            if ($this->db->affected_rows() > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 	}
 
  ?>

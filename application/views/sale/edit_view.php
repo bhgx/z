@@ -53,7 +53,7 @@
 					</div>
 					<div class="form-group">
 						<label for="">备注</label>
-						<textarea name="summary" class="form-textarea form-control"><?php echo $item['summary'] ?></textarea>
+						<textarea name="summary" class="form-textarea form-control" maxlength="500"><?php echo $item['summary'] ?></textarea>
 					</div>
 					<div class="form-group text-center bw-mt">
 						<button class="btn btn-success">保存</button>
