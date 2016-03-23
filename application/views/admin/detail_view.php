@@ -15,11 +15,11 @@
 				</div>
 				<div class="detail-cl">
 					<label for="">权限</label>
-					<div class="detail-t"><?php echo $item['role'] ?></div>
+					<div class="detail-t"><?php echo $global_user_roles[$item['role']] ?></div>
 				</div>
 				<div class="detail-cl">
 					<label for="">状态</label>
-					<div class="detail-t"><?php echo $item['status'] ?></div>
+					<div class="detail-t"><?php echo $global_user_status[$item['status']] ?></div>
 				</div>
 				<div class="detail-cl">
 					<label for="">头像</label>
