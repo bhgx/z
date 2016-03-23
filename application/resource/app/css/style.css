@@ -196,8 +196,7 @@ li{
 .side-nav h2 {
     display: block;
     height: 30px;
-    line-height: 30px;
-    /*background-color: #fff;*/
+    line-height: 28px;
     text-align: center;
     border: 1px solid #fff;
     color: #fff;
@@ -205,25 +204,25 @@ li{
     font-family: 'Microsoft YaHei';
     font-size: 16px;
     margin-bottom: 0;
+    border-radius: 2px;
 }
 .side-nav a {
     display: block;
     height: 30px;
-    line-height: 30px;
+    line-height: 28px;
     border: 1px solid #fff;
     color: #fff;
-    /*background-color: #fff;*/
     text-decoration: none;
     padding-left: 30px;
-    /*background-image: url(../images/kuz.ico);*/
     background-repeat: no-repeat;
     background-position: 10px center;
+    border-radius: 2px;
 }
 .side-nav a:hover{
 	color:#5cb85c;
 }
 .side-line{
-	height: 10px;
+	height: 15px;
 	background: url(../images/linkbg.gif) repeat-y top center;
 }
 .detail-cl{

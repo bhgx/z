@@ -9,9 +9,9 @@
 	<div class="side-nav">
 		<h2><span></span>名&nbsp;&nbsp;站</h2>
 		<div class="side-line"></div>
-		<a target="_blank" href="http://www.oschina.net/">开源中国社区</a>
+		<a target="_blank" href="https://wx.qq.com/">微信网页版</a>
 		<div class="side-line"></div>
-		<a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Mozilla_event_reference">Mozilla Events</a>
+		<a target="_blank" href="http://yun.baidu.com/">百度网盘</a>
 		<div class="side-line"></div>
 		<a target="_blank" href="http://icomoon.io/">IcoMoon</a>
 		<div class="side-line"></div>
