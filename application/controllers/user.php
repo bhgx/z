@@ -5,11 +5,14 @@
 
         public function __construct(){
             parent::__construct();
+            // if(!$this->session->has_userdata('username')){
+            //     redirect('user/login');
+            // }
             $this->load->model('user_model');
         }
 
         public function index(){
-            redirect('user/login');
+            redirect('user/detail');
         }
 
         // 到登录页面
@@ -25,7 +28,7 @@
         //登录
         public function check(){
    			$username = $this->input->post('username',true);
-			$password = $this->input->post('password',true);
+			$password = md5($this->input->post('password',true));
 
             $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));
 
@@ -38,11 +41,66 @@
                 ));
                 redirect('sale/lists');
             } else {
-
                 //想在这里先给一个alert提示，然后再跳转到登陆页面
-
                 redirect('user/login');
             }
+            
+        }
+
+        //查看详情
+        public function detail(){
+            $user_id = $this->session->userdata('user_id');
+            $data['item'] = $this->user_model->get_user($user_id);
+            $this->load->view('template/start');
+            $this->load->view('user/detail_view', $data);
+            $this->load->view('template/end');
+        }
+
+        //编辑
+        public function edit(){
+            $user_id = $this->session->userdata('user_id');
+            $data['item'] = $this->user_model->get_user($user_id);
+            $this->load->view('template/start');
+            $this->load->view('user/edit_view', $data);
+            $this->load->view('template/end');
+        }
+
+        public function edit_save($user_id){
+            $obj = array();
+            $obj['nike_name'] = trim($this->input->post('nike_name',true));
+            $obj['avatar'] = trim($this->input->post('avatar',true));
+
+            $result = $this->user_model->update_user($user_id, $obj);
+            if($result){
+                redirect('user/detail/'.$user_id);
+            } else {
+                alert('保存失败！');
+            }
+        }
+
+        //修改密码
+        public function change_pwd(){
+            $this->load->view('template/start');
+            $this->load->view('user/change_pwd_view', $data);
+            $this->load->view('template/end');
+        }
+
+        //修改密码 保存
+        public function change_pwd_save(){
+            $user_id = $this->session->userdata('user_id');
+
+            $username = $this->session->userdata('username');
+            $password = md5($this->input->post('password',true));
+
+            $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));
+
+            if ($row = $query->row_array()){
+                
+            } else {
+                alert('原密码错误');
+            }
+
+            $this->user_model->update_user($user_id, $obj);
             
         }
 

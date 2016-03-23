@@ -1,10 +1,10 @@
 <div class="aside" id="aside">
-	<?php if($this->session->userdata('role') > 1): ?>
+	<?php if($this->session->userdata('avatar')): ?>
 	<div class="user-wrap">
 		<img src="<?php echo $this->session->userdata('avatar') ?>" alt="" class="user">
 	</div>
 	<?php else: ?>
-	<img src="<?php echo $this->session->userdata('avatar') ?>" alt="" class="ewm">
+	<img src="<?php echo base_url('application/resource/app/images/ewm.png') ?>" alt="" class="ewm">
 	<?php endif ?>
 	<div class="side-nav">
 		<h2><span></span>名&nbsp;&nbsp;站</h2>

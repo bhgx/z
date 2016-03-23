@@ -7,7 +7,12 @@
             parent::__construct();
             if(!$this->session->has_userdata('username')){
                 redirect('user/login');
+            } else {
+                if($this->session->userdata('role') > 1){
+                    redirect('sale/lists');
+                }
             }
+
             $this->load->model('user_model');
         }
 
@@ -23,13 +28,13 @@
             $this->load->view('template/end');
         }
 
-        //注册
+        //添加用户 保存
         public function add_save(){
 
             $obj = array();
             $obj['nike_name'] = trim($this->input->post('nike_name',true));
             $obj['username'] = trim($this->input->post('username',true));
-            $obj['password'] = trim($this->input->post('password',true));
+            $obj['password'] = md5(trim($this->input->post('username',true)));
             $obj['role'] = trim($this->input->post('role',true));
             $obj['status'] = trim($this->input->post('status',true));
             $obj['avatar'] = trim($this->input->post('avatar',true));

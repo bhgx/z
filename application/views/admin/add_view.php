@@ -14,17 +14,13 @@
 						<input name="username" type="text" class="form-control bg-f" naxlength="16">
 					</div>
 					<div class="form-group">
-						<label for="">密码</label>
-						<input name="password" type="text" class="form-control" naxlength="20">
-					</div>
-					<div class="form-group">
 						<label for="">头像</label>
 						<input name="avatar" type="text" class="form-control" naxlength="100">
 					</div>
 					<div class="form-group">
 						<label for="">角色权限</label>
 						<select name="role" class="form-control">
-							<?php foreach ($global_user_roles as $key => $value): ?>
+							<?php foreach ($global_user_roles_edit as $key => $value): ?>
 								<option value="<?php echo $key ?>"><?php echo $value ?></option>
 							<?php endforeach ?>
 						</select>

@@ -274,8 +274,15 @@ li{
 .bg-f{
 	background-color: #fff !important;
 }
-
-
+.ft{
+	color:#4cae4c;
+	font-size: 16px;
+	line-height: 16px;
+	padding:0 0 10px;
+}
+.ft-mr{
+	margin-top: 20px;
+}
 
 
 
