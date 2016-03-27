@@ -19,11 +19,16 @@
 					</div>
 					<div class="form-group">
 						<label for="">角色权限</label>
+						<?php if($item['role'] > 1): ?>
 						<select name="role" class="form-control">
 							<?php foreach ($global_user_roles_edit as $key => $value): ?>
 								<option <?php add_selected($item['role'], $key); ?> value="<?php echo $key ?>"><?php echo $value ?></option>
 							<?php endforeach ?>
 						</select>
+						<?php else: ?>
+						<input name="role" type="hidden" value="<?php echo $item['role'] ?>" />
+						<div class="edit-dis color-warm"><?php echo $global_user_roles[$item['role']] ?></div>
+						<?php endif ?>
 					</div>
 					<div class="form-group">
 						<label for="">状态</label>
