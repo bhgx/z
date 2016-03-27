@@ -4,10 +4,10 @@
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="add-wrap">
-				<form action="<?php echo site_url('/customer/edit_save/'.$item['id']) ?>" method="post">
+				<form id="form" action="<?php echo site_url('/customer/edit_save/'.$item['id']) ?>" method="post">
 					<div class="form-group">
-						<label for="">公司名称</label>
-						<input name="name" value="<?php echo $item['name'] ?>" type="text" class="form-control">
+						<label for="">客户公司名称<i class="nessary">*</i></label>
+						<input name="name" id="name" value="<?php echo $item['name'] ?>" type="text" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="">联系人名</label>
@@ -51,7 +51,7 @@
 						<textarea name="summary" class="form-textarea form-control"><?php echo $item['summary'] ?></textarea>
 					</div>
 					<div class="form-group text-center">
-						<button class="btn btn-success">保存</button>
+						<button id="save" class="btn btn-success">保存</button>
 					</div>
 				</form>
 			</div>
@@ -60,3 +60,12 @@
 </div>
 <div class="footer"></div>
 <?php $this->load->view('template/scripts'); ?>
+<script type="text/javascript">
+	$(function(){
+		valid({
+			submitId: 'save',
+			formId: 'form',
+			inputArray: ['name']
+		});
+	});
+</script>

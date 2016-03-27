@@ -28,7 +28,6 @@
 				$this->db->like('a.link_join_id',$obj['link_join_id'],'both');
 			}
 			$this->db->where('a.user_id',$this->session->userdata('user_id'));
-			$this->db->where('b.user_id',$this->session->userdata('user_id'));
 			$this->db->select('a.id,a.name,a.link_name,a.link_tell,a.link_sex,a.address,a.status,a.create_at,a.link_join_id,b.name as link_join_name');
 			$this->db->from('customer_company as a');
 			$this->db->join('join_company as b', 'a.link_join_id=b.id', 'left');

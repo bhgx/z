@@ -31,7 +31,6 @@
 			$password = md5($this->input->post('password',true));
 
             $query = $this->user_model->check_user(array('username' => $username, 'password' => $password));
-
             if ($row = $query->row_array()){
                 $this->session->set_userdata(array(
                     'username' => $row['username'],
@@ -39,11 +38,14 @@
                     'role' => $row['role'],
                     'avatar' => $row['avatar']
                 ));
-                redirect('sale/lists');
+                $response= json_encode($row);
+                echo $response;
             } else {
-                //想在这里先给一个alert提示，然后再跳转到登陆页面
-                redirect('user/login');
+                header('HTTP/1.1 401 Unauthorized');
+                $response="用户名或密码错误";
+                echo $response;
             }
+
             
         }
 

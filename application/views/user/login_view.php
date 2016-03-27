@@ -1,18 +1,17 @@
 <div class="login-content">
-	<form id="loginForm" action="<?php echo site_url('/user/check') ?>" method="post">
-		<div class="form-group">
-			<input id="username" name="username" type="text" class="form-control" placeholder="账号">
-		</div>
-		<div class="form-group">
-			<input id="password" name="password" type="password" class="form-control" placeholder="密码">
-		</div>
-		<div class="form-group">
-			<a id="login" class="btn btn-block btn-success disabled">登录</a>
-		</div>
-	</form>
+	<div class="form-group">
+		<input id="username" name="username" type="text" class="form-control" placeholder="账号">
+	</div>
+	<div class="form-group">
+		<input id="password" name="password" type="password" class="form-control" placeholder="密码">
+	</div>
+	<div class="form-group">
+		<a id="login" class="btn btn-block btn-success disabled">登录</a>
+	</div>
 </div>
 <?php $this->load->view('template/scripts'); ?>
 <script type="text/javascript">
+	var baseUrl = '<?php echo site_url() ?>';
 	$(function(){
 		var $login = $('#login'),
 			$loginForm = $('#loginForm');
@@ -25,13 +24,26 @@
 				$login.addClass('disabled');
 			}
 		});
-
 		$login.on('click', function(event){
-			event.preventDefault()
 			if($login.hasClass('disabled')){
 				return false;
 			} 
-			$loginForm.submit();
+			var param = {
+				username: $.trim($('#username').val()),
+				password: $.trim($('#password').val())
+			};
+			$.ajax({
+				type: 'post',
+				url: baseUrl+'/user/check',
+				data: param,
+				success: function(result){
+					location.href = baseUrl + '/sale/lists';
+				},
+				error: function(err){
+					alert(err.responseText);
+				}
+
+			});
 		});
 	});
 </script>

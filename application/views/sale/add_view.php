@@ -4,14 +4,14 @@
 		<?php $this->load->view('template/side') ?>
 		<div class="content-r">
 			<div class="add-wrap">
-				<form action="<?php echo site_url('/sale/add_save') ?>" method="post">
+				<form id="form" action="<?php echo site_url('/sale/add_save') ?>" method="post">
 					<div class="form-group">
-						<label for="">交易日期</label>
-						<input name="sale_date" readonly onclick="WdatePicker()" type="text" class="form-control bg-f" placeholder="2012-02-14">
+						<label for="">交易日期<i class="nessary">*</i></label>
+						<input name="sale_date" id="sale_date" readonly onclick="WdatePicker()" type="text" class="form-control bg-f" placeholder="2012-02-14">
 					</div>
 					<div class="form-group">
-						<label for="">商品名称</label>
-						<input name="goods_name" type="text" class="form-control">
+						<label for="">商品名称<i class="nessary">*</i></label>
+						<input name="goods_name" id="goods_name" type="text" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="">交易数量</label>
@@ -57,7 +57,7 @@
 					</div>
 					
 					<div class="form-group text-center bw-mt">
-						<button class="btn btn-success">保存</button>
+						<button id="save" class="btn btn-success">保存</button>
 					</div>
 				</form>
 			</div>
@@ -68,5 +68,13 @@
 <?php $this->load->view('template/scripts'); ?>
 <link rel="stylesheet" href="<?php echo base_url('application/resource/libs/My97DatePicker/skin/WdatePicker.css') ?>">
 <script type="text/javascript" src="<?php echo base_url('application/resource/libs/My97DatePicker/WdatePicker.js') ?>"></script>
-
+<script type="text/javascript">
+	$(function(){
+		valid({
+			submitId: 'save',
+			formId: 'form',
+			inputArray: ['sale_date','goods_name']
+		});
+	});
+</script>
 

@@ -6,7 +6,7 @@
 			<div class="add-wrap">
 				
 				<div class="detail-cl">
-					<label for="">公司名称</label>
+					<label for="">客户公司名称</label>
 					<div class="detail-t"><?php echo $item['name'] ?></div>
 				</div>
 				<div class="detail-cl">
