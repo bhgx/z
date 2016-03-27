@@ -11,7 +11,7 @@
 </div>
 <?php $this->load->view('template/scripts'); ?>
 <script type="text/javascript">
-	var baseUrl = '<?php echo site_url() ?>';
+	var baseUrl = '<?php echo site_url(); ?>';
 	$(function(){
 		var $login = $('#login'),
 			$loginForm = $('#loginForm');
