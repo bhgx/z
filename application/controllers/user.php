@@ -6,9 +6,7 @@
         public function __construct(){
             parent::__construct();
 
-            if(!$this->session->has_userdata('username') && $this->uri->segment(2) != 'login'){
-                redirect('user/login');
-            }
+            
             $this->load->model('user_model');
         }
 
@@ -52,6 +50,9 @@
 
         //查看详情
         public function detail(){
+            if(!$this->session->has_userdata('username') && $this->uri->segment(2) != 'login'){
+                redirect('user/login');
+            }
             $user_id = $this->session->userdata('user_id');
             $data['item'] = $this->user_model->get_user($user_id);
             $this->load->view('template/start');
@@ -61,6 +62,9 @@
 
         //编辑
         public function edit(){
+            if(!$this->session->has_userdata('username') && $this->uri->segment(2) != 'login'){
+                redirect('user/login');
+            }
             $user_id = $this->session->userdata('user_id');
             $data['item'] = $this->user_model->get_user($user_id);
             $this->load->view('template/start');
@@ -84,6 +88,9 @@
 
         //修改密码
         public function change_pwd(){
+            if(!$this->session->has_userdata('username') && $this->uri->segment(2) != 'login'){
+                redirect('user/login');
+            }
             $this->load->view('template/start');
             $this->load->view('user/change_pwd_view');
             $this->load->view('template/end');
