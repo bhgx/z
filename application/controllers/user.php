@@ -5,9 +5,10 @@
 
         public function __construct(){
             parent::__construct();
-            // if(!$this->session->has_userdata('username')){
-            //     redirect('user/login');
-            // }
+
+            if(!$this->session->has_userdata('username') && $this->uri->segment(2) != 'login'){
+                redirect('user/login');
+            }
             $this->load->model('user_model');
         }
 
