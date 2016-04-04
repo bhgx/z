@@ -37,7 +37,7 @@
 				url: baseUrl+'/user/check',
 				data: param,
 				success: function(result){
-					location.href = baseUrl + '/sale/lists';
+					location.href = baseUrl + 'sale/lists';
 				},
 				error: function(err){
 					alert(err.responseText);
